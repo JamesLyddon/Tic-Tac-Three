@@ -1,0 +1,253 @@
+:root {
+  --colour-orange: rgb(233, 116, 81);
+  --colour-blue: rgb(15, 163, 177);
+  --colour-white: #FAFFFD;
+  --colour-black: #444545;
+  --colour-shade: #363636;
+  --colour-timbre: #C9C5BA;
+}
+
+body {
+  margin: 0 auto;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  color: var(--colour-black);
+  background-color: var(--colour-black);
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+
+.game-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--colour-black);
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 4px solid var(--colour-shade);
+  box-shadow: 10px 10px 0px var(--colour-shade);
+  margin-bottom: 2rem;
+}
+
+.square {
+  cursor: crosshair;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--colour-blue);
+  text-shadow: 3px 3px 3px #888;
+  -webkit-text-stroke: 2px var(--colour-shade);
+  border: 4px solid var(--colour-shade);
+  background-color: var(--colour-white);
+  border-radius: .5rem;
+  height: 100px;
+  width: 100px;
+  transition: transform 0.3s, box-shadow 0.3s ease-in-out; 
+}
+
+.status, .status-buttons svg, .status-scores {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: var(--colour-timbre);
+  margin-bottom: 1rem;
+}
+
+.status {
+  font-size: 2rem;;
+  line-height: 1;
+  transition: 0.1s ease-in-out;
+}
+
+.status-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.status-buttons svg {
+  width: 48px;
+  min-width: 48px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out; 
+}
+
+.status-buttons svg:nth-child(1) {
+  color: var(--colour-orange);
+}
+
+.status-buttons svg:nth-child(2) {
+  color: #9792E3;
+}
+
+.status-buttons svg:nth-child(3) {
+  color: var(--colour-blue);
+}
+
+.status-scores {
+  font-size: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.status-scores span:nth-child(1) {
+  color: var(--colour-orange);
+}
+
+.status-scores span:nth-child(2) {
+  color: var(--colour-blue);
+}
+
+.invert {
+  transform: rotate(180deg);
+}
+
+/* Interactions */
+
+.square:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 2px var(--colour-shade);
+}
+
+.status-buttons svg:hover {
+  filter: brightness(150%);
+}
+
+/* Animation Classes */
+
+.slowly-rotate {
+  animation: slowrotate 3s linear infinite;
+}
+
+.wiggle {
+  animation: wiggle 10s ease-in-out infinite;
+}
+
+.stampx {
+  animation: stampx 1.5s ease-out;
+}
+
+.stampo {
+  animation: stampo 1.5s ease-out;
+}
+
+.jump {
+  animation: jump 1s ease-in-out infinite;
+}
+
+.twist {
+  animation: twist 10s linear infinite;
+}
+
+/* Animation Definitions */
+
+@keyframes slowrotate{
+  from{
+    transform: rotate(360deg)
+  }
+  to{
+    transform: rotate(0deg)
+  }
+}
+
+@keyframes stampx {
+  0% {
+    transform: scale(500%) skewY(20deg);
+      text-shadow: 40px 40px 10px #000;
+      filter: blur(1px);
+  }
+  30% {
+    transform: scale(50%);
+    text-shadow: 1px 1px 1px #555;
+          filter: blur(0px);
+  }
+  40% {
+    transform: scale(130%);
+    text-shadow: 15px 15px 5px #666;
+  }
+  48% {
+    transform: scale(80%);
+    text-shadow: 2px 2px 1px #777;
+  }
+  55% {
+    transform: scale(110%);
+    text-shadow: 6px 6px 4px #888;
+  }
+  60% {
+    transform: scale(95%);
+    text-shadow: 3px 3px 2px #888;
+  }
+  63% {
+    transform: scale(103%);
+    text-shadow: 4px 4px 4px #888;
+  }
+  65% {
+    transform: scale(100%);
+    text-shadow: 3px 3px 3px #888;
+  }
+}
+
+@keyframes stampo {
+  0% {
+    transform: scale(500%) skewY(-20deg);
+      text-shadow: 40px 40px 10px #000;
+      filter: blur(1px);
+  }
+  30% {
+    transform: scale(50%);
+    text-shadow: 1px 1px 1px #555;
+          filter: blur(0px);
+  }
+  40% {
+    transform: scale(130%);
+    text-shadow: 15px 15px 5px #666;
+  }
+  48% {
+    transform: scale(80%);
+    text-shadow: 2px 2px 1px #777;
+  }
+  55% {
+    transform: scale(110%);
+    text-shadow: 6px 6px 4px #888;
+  }
+  60% {
+    transform: scale(95%);
+    text-shadow: 3px 3px 2px #888;
+  }
+  63% {
+    transform: scale(103%);
+    text-shadow: 4px 4px 4px #888;
+  }
+  65% {
+    transform: scale(100%);
+    text-shadow: 3px 3px 3px #888;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+    filter: opacity(100%)
+  }
+  25% {
+    transform: translateY(10px)  rotateX(30deg);
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: opacity(75%);
+  }
+  75% {
+    transform: translateY(10px)  rotateX(-20deg);
+  }
+  100% {
+    transform: translateY(0px);
+    filter: opacity(100%);
+  }
+}
